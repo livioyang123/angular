@@ -225,8 +225,40 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
+
+
       <h1>Hello, {{ title }}</h1>
-      <p>Congratulations! Your app is running. 🎉</p>
+      <h1>Hello, {{ title }}</h1>
+      <p>numero click : {{numclick}}</p>
+      <input type ="text" [(ngModel)]="title">
+      <button (click)="clickButton('a')"[disabled]="buttonDisabled">ciao</button>
+      <br>
+      
+        <label>nome:</label>
+        <input type ="text" [(ngModel)]="nome" value={{nome}}>
+        <label>cognome:</label>
+        <input type="text" [(ngModel)]="cognome" value={{cognome}}>
+        <label>eta:</label>
+        <input type="number" [(ngModel)]="eta" value={{eta}}>
+
+        <button *ngIf="!isEdit" (click)="add()">add</button>
+        <button *ngIf="isEdit" (click)="update()">edit</button>
+
+
+      <p>{{person.name}} {{person.surname}}  {{person.age}}</p>
+
+
+      <div *ngFor="let person of list;index as i">
+        <hr>
+        <p>{{person.name}}</p>
+        <p>{{person.surname}}</p>
+        <p>{{person.age}}</p>
+        <button (click)="delete(i)">delete</button>
+        <button (click)="edit(i)">edit</button>
+
+      </div>
+
+
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
